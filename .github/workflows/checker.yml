@@ -2,7 +2,7 @@ name: Checker
 
 on:
   schedule:
-    - cron: "* * * * *"
+    - cron: "0 5 * * *"
   workflow_dispatch:
 
 env:
