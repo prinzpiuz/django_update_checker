@@ -21,6 +21,6 @@ if html.status_code is 200:
         pub_date = splitted_url[6]
         # print(year, month, day)
         # print(pub_year, pub_month, pub_date)
-    print(a_tag.get_text())
+    print(a_tag)
 else:
     print("website not availabel")
