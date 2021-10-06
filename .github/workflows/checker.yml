@@ -1,0 +1,33 @@
+name: Checker
+
+on:
+  schedule:
+    - cron: "* * * * *"
+  workflow_dispatch:
+
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
+jobs:
+  scrape-latest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2.0.0
+        with:
+          python-version: "3.7"
+      - name: Install requirements
+        run: pip install -r requirements.txt
+      - name: Run Checker And Set Output as ENV
+        run: |
+          echo "UPDATE=$(python checker.py)" >> $GITHUB_ENV
+      - name: Send Teams Notification
+        uses: jdcargile/ms-teams-notification@v1.3
+        with:
+          github-token: ${{ github.token }}
+          ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+          notification-summary: updates available for ${{env.UPDATE}}
+          notification-color: 17a2b8
