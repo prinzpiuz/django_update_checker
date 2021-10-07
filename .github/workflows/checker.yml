@@ -25,7 +25,7 @@ jobs:
         run: |
           echo "UPDATE=$(python checker.py)" >> $GITHUB_ENV
       - name: Django Updates Microsoft Teams Notification
-        uses: prinzpiuz/teams_django_update_notification@1.4
+        uses: prinzpiuz/ms-teams-notification@cutom_django_updater
         with:
           github-token: ${{ github.token }}
           ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
