@@ -21,13 +21,5 @@ jobs:
           python-version: "3.7"
       - name: Install requirements
         run: pip install -r requirements.txt
-      - name: Run Checker And Set Output as ENV
-        run: |
-          echo "UPDATE=$(python checker.py)" >> $GITHUB_ENV
-      - name: Django Updates Microsoft Teams Notification
-        uses: prinzpiuz/ms-teams-notification@1.4
-        with:
-          github-token: ${{ github.token }}
-          ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
-          notification-summary: updates available for ${{env.UPDATE}}
-          notification-color: 17a2b8
+      - name: Run Checker And Sent Teams Notification
+        run: python checker.py --url ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
