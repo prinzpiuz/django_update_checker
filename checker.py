@@ -28,20 +28,20 @@ if args.url:
             pub_month = splitted_url[5]
             pub_date = splitted_url[6]
             avatar_url = "https://avatars.githubusercontent.com/u/27804?s=200&v=4"
-        if day == pub_date and month == pub_month and year == pub_year:
-            try:
-                teams_message = pymsteams.connectorcard(args.url)
-                teams_message.text("Django Update Available")
-                teams_message.color("#0C4B33")
-                teams_message_card = pymsteams.cardsection()
-                teams_message_card.activityImage(avatar_url)
-                teams_message_card.activityTitle(title)
-                teams_message_card.activitySubtitle(
-                    '<a href="{}">Read More Here</a>'.format(a_tag.get('href')))
-                teams_message.addSection(teams_message_card)
-                teams_message.send()
-            except pymsteams.TeamsWebhookException as e:
-                print(e)
+            if day == pub_date and month == pub_month and year == pub_year:
+                try:
+                    teams_message = pymsteams.connectorcard(args.url)
+                    teams_message.text("Django Update Available")
+                    teams_message.color("#0C4B33")
+                    teams_message_card = pymsteams.cardsection()
+                    teams_message_card.activityImage(avatar_url)
+                    teams_message_card.activityTitle(title)
+                    teams_message_card.activitySubtitle(
+                        '<a href="{}">Read More Here</a>'.format(a_tag.get('href')))
+                    teams_message.addSection(teams_message_card)
+                    teams_message.send()
+                except pymsteams.TeamsWebhookException as e:
+                    print(e)
     else:
         print("website not available")
 else:
