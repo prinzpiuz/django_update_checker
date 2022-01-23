@@ -28,7 +28,7 @@ if args.url:
             pub_month = splitted_url[5]
             pub_date = splitted_url[6]
             avatar_url = "https://avatars.githubusercontent.com/u/27804?s=200&v=4"
-            if day == pub_date and month == pub_month and year == pub_year:
+            if day == pub_date and month == pub_month and year == pub_year and "releases" in title or "released" in title:
                 try:
                     teams_message = pymsteams.connectorcard(args.url)
                     teams_message.text("Django Update Available")
