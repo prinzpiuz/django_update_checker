@@ -22,5 +22,5 @@ jobs:
       - name: Install requirements
         run: pip install -r requirements.txt
       - name: Run Checker And Sent Teams Notification
-        run: python checker.py --url ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+        run: python checker.py --url ${{ secrets.MS_TEAMS_WEBHOOK_URI }} --words ${{ secrets.WORDS_TO_TRACK_IN_TITLE }}
       - uses: gautamkrishnar/keepalive-workflow@master # https://github.com/gautamkrishnar/keepalive-workflow
