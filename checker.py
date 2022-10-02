@@ -16,7 +16,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--url", help="incoming ms teams webhook url", type=str)
     parser.add_argument(
-        "--words", help="pattern to match in title string", type=str, default=""
+        "--words", help="pattern to match in title string", type=str, required=False
     )
     args = parser.parse_args()
     date = datetime.today() - timedelta(days=1)
