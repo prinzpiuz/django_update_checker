@@ -15,7 +15,9 @@ def main():
     """main function"""
     parser = argparse.ArgumentParser()
     parser.add_argument("--url", help="incoming ms teams webhook url", type=str)
-    parser.add_argument("--words", help="pattern to match in title string", type=str)
+    parser.add_argument(
+        "--words", help="pattern to match in title string", type=str, default=""
+    )
     args = parser.parse_args()
     date = datetime.today() - timedelta(days=1)
     month = date.month
