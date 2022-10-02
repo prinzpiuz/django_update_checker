@@ -15,10 +15,11 @@ This is a small script for checking any new updates/bugfixes/security fixes rele
 - Fork this repo
 - Go to the actions page and enable actions on the forked repo (it will be disabled by default in the forked repo)
 - Get an incoming Teams webhook URL. for reference, please check [Teams Incoming Webhook URL ](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook)
-- Add webhook URL as MS_TEAMS_WEBHOOK_URI in your cloned repos Settings --> Secrets. for reference, please check [GitHub Secrets ](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)
-- If more types of titles want to be parsed, add them as words in WORDS_TO_TRACK_IN_TITLE in your cloned repos Settings --> Secrets. for reference, please check [GitHub Secrets ](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)
+- Add webhook URL as `MS_TEAMS_WEBHOOK_URI` in your cloned repos Settings --> Secrets. for reference, please check [GitHub Secrets ](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)
+- If more types of titles want to be parsed, add them as words in `WORDS_TO_TRACK_IN_TITLE` in your cloned repos Settings --> Secrets. for reference, please check [GitHub Secrets ](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)
   - Default keywords tracking is `["releases", "released", "release", "bugfix"]`
   - eg if add `--words = survey` resulting tracking list will be `["releases", "released", "release", "bugfix", "survey"]`
+- If no extra keywords are to be tracked, add `WORDS_TO_TRACK_IN_TITLE` in the secrets with an empty string
 
 ##### Run Locally
 
