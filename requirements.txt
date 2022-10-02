@@ -1,2 +1,2 @@
-pymsteams==0.1.16
+pymsteams==0.2.1
 feedparser==6.0.10
