@@ -16,9 +16,9 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
       - name: Set up Python
-        uses: Qwerty-133/python-setup@v1
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.8.4"
+          python-version: "3.8"
       - name: Install requirements
         run: pip install -r requirements.txt
       - name: Run Checker And Sent Teams Notification
